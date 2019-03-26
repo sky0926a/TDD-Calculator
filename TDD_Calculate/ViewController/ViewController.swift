@@ -32,30 +32,26 @@ class ViewController: UIViewController {
     var line4OneType: [PressType] = [.zero,.digit,.equal]
     
     let model: ViewModel = ViewModel()
-    var result: String = "0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.output.handler = { [weak self] value in
-            self?.resultLabel.text = value
-        }
-        // Do any additional setup after loading the view, typically from a nib.
         setupUI()
         setupLayout()
-        model.put(.clean)
+        initMethod()
     }
 }
 
 extension ViewController: ViewControllerFlowProtocol {
     func setupUI() {
         view.backgroundColor = UIColor.black
+        
         bottomCotainer.backgroundColor = UIColor.clear
+        
         resultLabel.textColor = UIColor.white
         resultLabel.textAlignment = .right
         resultLabel.font = UIFont.systemFont(ofSize: 90, weight: .light)
         resultLabel.adjustsFontSizeToFitWidth = true
         resultLabel.minimumScaleFactor = 0.2
-        
         
         containerStackView.spacing = 15
         
@@ -81,7 +77,12 @@ extension ViewController: ViewControllerFlowProtocol {
             NSLayoutConstraint(item: equalButton, attribute: .width, relatedBy: .equal, toItem: zeroButton, attribute: .width, multiplier: 0.5, constant: -10).isActive = true
         }
     }
-    
+    func initMethod() {
+        model.output.handler = { [weak self] value in
+            self?.resultLabel.text = value
+        }
+        model.put(.clean)
+    }
 }
 
 extension ViewController {
@@ -93,7 +94,6 @@ extension ViewController {
             button.setTitleColor(atype.operation.titleColor, for: .normal)
             button.backgroundColor = atype.operation.backgroundColor
             button.addTarget(self, action: #selector(tap(_:)), for: .touchUpInside)
-//            button.contentHorizontalAlignment = .left
             data.view.addArrangedSubview(button)
         }
     }
