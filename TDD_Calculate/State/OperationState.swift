@@ -128,15 +128,15 @@ class OperationStateSubtraction: OperationCommandState {
     }
 }
 
-class OperationStateDivision: OperationCommandState {
-    var type: PressType { return .division }
+class OperationStateMultiplication: OperationCommandState {
+    var type: PressType { return .multiplication }
     func calcute(data: inout CalculateData) {
         data.display = (data.cache.value * data.display.value).toString
     }
 }
 
-class OperationStateMultiplication: OperationCommandState {
-    var type: PressType { return .multiplication }
+class OperationStateDivision: OperationCommandState {
+    var type: PressType { return .division }
     func calcute(data: inout CalculateData) {
         data.display = (data.cache.value / data.display.value).toString
     }

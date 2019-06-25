@@ -49,9 +49,9 @@ enum PressType: String {
     /// -
     case subtraction = "-"
     /// ×
-    case division = "×"
+    case multiplication = "×"
     /// ÷
-    case multiplication = "÷"
+    case division = "÷"
     /// =
     case equal = "="
     
@@ -90,22 +90,6 @@ extension PressType {
     var name: String {
         return rawValue
     }
-//    
-//    var value: Int? {
-//        switch self {
-//        case .zero: return 0
-//        case .one: return 1
-//        case .two: return 2
-//        case .three: return 3
-//        case .four: return 4
-//        case .five: return 5
-//        case .six: return 6
-//        case .seven: return 7
-//        case .eight: return 8
-//        case .nine: return 9
-//        default: return nil
-//        }
-//    }
     
     var operation: OperationType {
         switch self {

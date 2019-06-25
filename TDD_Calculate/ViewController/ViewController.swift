@@ -25,8 +25,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var line4StackView: UIStackView!
     @IBOutlet weak var resultLabel: UILabel!
     
-    var line0OneType: [PressType] = [.clean,.sign,.percentage,.multiplication]
-    var line1OneType: [PressType] = [.seven,.eight,.nine,.division]
+    var line0OneType: [PressType] = [.clean,.sign,.percentage,.division]
+    var line1OneType: [PressType] = [.seven,.eight,.nine,.multiplication]
     var line2OneType: [PressType] = [.four,.five,.six,.subtraction]
     var line3OneType: [PressType] = [.one,.two,.three,.addition]
     var line4OneType: [PressType] = [.zero,.digit,.equal]
